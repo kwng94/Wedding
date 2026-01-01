@@ -1,4 +1,4 @@
-/* 1. 기본 초기화 및 폰트 설정 */
+/* 1. 외부 폰트 설정 및 초기화 */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,92 +6,82 @@
 }
 
 body {
-    background-color: #f5f5f5;
-    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    /* 기본 폰트: 가독성 좋은 프리텐다드 */
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: #f8f9fa;
     color: #333;
+    line-height: 1.6;
+    word-break: keep-all; /* 단어 단위로 줄바꿈되어 문장이 예쁘게 보입니다 */
     display: flex;
     justify-content: center;
 }
 
-/* 2. 모바일 컨테이너 설정 */
+/* 2. 모바일 컨테이너 */
 .container {
-    width: 100%; !important
-    max-width: 480px;
-    background-color: white;
-    min-height: 100vh;
-    padding-bottom: 60px;
-    overflow-x: hidden; !important
-}
-
-/* 3. 사진 크기 동적 조절 (핵심) */
-.responsive-img {
     width: 100% !important;
-    height: auto !important;
-    display: block;
+    max-width: 480px !important;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    overflow-x: hidden; /* 가로 스크롤 절대 방지 */
 }
 
-/* 4. D-Day 배너 */
-.dday-banner {
-    background-color: #faf3e0;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #a4907c;
-    font-weight: bold;
+/* 3. 제목 및 강조 텍스트: 우아한 나눔명조 적용 */
+h1, h2, h3, .intro p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
 }
 
-/* 5. 메인 정보 텍스트 */
-.main-info {
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.main-info h1 {
+h1 {
     font-size: 1.6rem;
     color: #8d7b68;
-    margin-bottom: 15px;
-}
-
-.main-info .date { font-weight: bold; margin-bottom: 5px; }
-.main-info .venue { color: #888; font-size: 0.95rem; }
-
-/* 6. 섹션 스타일 */
-section {
-    padding: 50px 20px;
+    margin: 25px 0;
+    letter-spacing: 3px; /* 고급스러운 글자 간격 */
     text-align: center;
 }
 
-.divider { color: #d4a373; margin-bottom: 15px; }
+h2, h3 {
+    font-size: 1.25rem;
+    color: #a4907c;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-/* 7. 갤러리 슬라이더 크기 */
+/* 4. 이미지 크기 강제 고정 (통합 버전) */
+img, .responsive-img, .main-photo-section img, .gallery img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    max-width: 100% !important;
+}
+
+/* 5. 섹션 스타일 */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 2.0;
+    color: #555;
+}
+
+/* 6. 슬라이더(갤러리) 최적화 */
 .swiper {
-    width: 100%;
-    height: 350px;
-    margin-top: 20px;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 30px;
 }
 
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 8. 계좌번호 카드 및 버튼 */
-.account-card {
-    background-color: #fcfaf7;
-    border-radius: 15px;
-    padding: 25px;
-    margin-top: 20px;
-}
-
-button {
-    background-color: #a4907c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-top: 15px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-}
+/* 7. D-Day 배너 */
+.dday-banner {
+    background-color: #faf3e0;
+    padding: 18px;
+    text-align: center;
