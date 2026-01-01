@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO & OO 결혼식 초대장</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="d-day-section">
+            <div id="dday-display">예식까지 D-Day 계산 중...</div>
+        </section>
+
+        <header class="main-photo">
+            <img src="images/main.jpg" alt="메인 사진">
+        </header>
+
+        <section class="gallery">
+            <h2>우리의 기록</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/photo1.jpg"></div>
+                    <div class="swiper-slide"><img src="images/photo2.jpg"></div>
+                    <div class="swiper-slide"><img src="images/photo3.jpg"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="account">
+            <h2>마음 전하실 곳</h2>
+            <div class="account-box">
+                <p>신랑측: 국민은행 <span id="acc-num">123-456-7890</span></p>
+                <button onclick="copyAccount('123-456-7890')">번호 복사</button>
+            </div>
+        </section>
+
+        <section class="share">
+            <button id="kakao-link-btn" class="kakao-btn">카카오톡으로 공유하기</button>
+        </section>
+    </div>
+
+    <script>
+        // [기능 1] D-Day 계산 (C++의 시간 함수와 논리가 비슷합니다)
+        const weddingDate = new Date("2026-05-23T12:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = weddingDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("dday-display").innerText = `우리의 예식까지 ${days}일 남았습니다`;
+        }, 1000);
+
+        // [기능 2] 갤러리 슬라이드 설정
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: { el: '.swiper-pagination' },
+        });
+
+        // [기능 3] 계좌번호 복사 (클립보드 API)
+        function copyAccount(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("계좌번호가 복사되었습니다.");
+            });
+        }
+
+        // [기능 4] 카카오톡 공유 (JS 키 필요)
+        Kakao.init('YOUR_KAKAO_JS_KEY'); // 카카오 개발자 센터에서 발급 필요
+        Kakao.Link.createDefaultButton({
+            container: '#kakao-link-btn',
+            objectType: 'feed',
+            content: {
+                title: 'OO & OO의 결혼식',
+                description: '저희의 소중한 시작을 함께해 주세요.',
+                imageUrl: 'https://본인아이디.github.io/wedding/images/main.jpg',
+                link: { mobileWebUrl: window.location.href, webUrl: window.location.href }
+            }
+        });
+    </script>
+</body>
+</html>
 
