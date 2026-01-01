@@ -15,12 +15,12 @@ body {
 
 /* 2. 모바일 컨테이너 설정 */
 .container {
-    width: 100%;
+    width: 100%; !important
     max-width: 480px;
     background-color: white;
     min-height: 100vh;
     padding-bottom: 60px;
-    overflow-x: hidden;
+    overflow-x: hidden; !important
 }
 
 /* 3. 사진 크기 동적 조절 (핵심) */
