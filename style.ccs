@@ -1,98 +1,97 @@
-/* 1. 기본 스타일 초기화: 브라우저마다 다른 기본 여백을 0으로 설정 */
+/* 1. 기본 초기화 및 폰트 설정 */
 * {
-    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함시킴 */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #f8f9fa; /* 배경은 연한 회색 */
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    background-color: #f5f5f5;
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     color: #333;
-    line-height: 1.6;
     display: flex;
-    justify-content: center; /* PC에서 볼 때 중앙 정렬 */
+    justify-content: center;
 }
 
-/* 2. 메인 컨테이너: 모바일 폰의 최대 너비를 설정 */
+/* 2. 모바일 컨테이너 설정 */
 .container {
     width: 100%;
-    max-width: 480px; /* 아이폰/갤럭시 최적 너비 */
-    background-color: #ffffff;
+    max-width: 480px;
+    background-color: white;
     min-height: 100vh;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* 은은한 그림자 */
+    padding-bottom: 60px;
+    overflow-x: hidden;
 }
 
-/* 3. 이미지 스타일: 이 부분이 사진 크기 문제를 해결합니다 */
-img {
-    max-width: 100%; /* 부모 너비보다 커지지 않음 */
-    height: auto;    /* 비율 유지 */
-    display: block;  /* 이미지 하단 빈 공간 제거 */
+/* 3. 사진 크기 동적 조절 (핵심) */
+.responsive-img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
 }
 
-.main-photo img {
-    width: 100%;     /* 화면에 꽉 차게 */
-    /* 필요하다면 여기에 border-radius: 10px; 등을 추가하세요 */
+/* 4. D-Day 배너 */
+.dday-banner {
+    background-color: #faf3e0;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a4907c;
+    font-weight: bold;
 }
 
-/* 4. 섹션 공통 스타일 */
+/* 5. 메인 정보 텍스트 */
+.main-info {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.main-info h1 {
+    font-size: 1.6rem;
+    color: #8d7b68;
+    margin-bottom: 15px;
+}
+
+.main-info .date { font-weight: bold; margin-bottom: 5px; }
+.main-info .venue { color: #888; font-size: 0.95rem; }
+
+/* 6. 섹션 스타일 */
 section {
     padding: 50px 20px;
     text-align: center;
 }
 
-/* 5. 텍스트 디자인 */
-h1 {
-    font-size: 1.5rem;
-    margin: 20px 0;
-    color: #8d7b68;
-    letter-spacing: 2px;
+.divider { color: #d4a373; margin-bottom: 15px; }
+
+/* 7. 갤러리 슬라이더 크기 */
+.swiper {
+    width: 100%;
+    height: 350px;
+    margin-top: 20px;
 }
 
-h2 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #a4907c;
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #555;
+/* 8. 계좌번호 카드 및 버튼 */
+.account-card {
+    background-color: #fcfaf7;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 20px;
 }
 
-/* 6. 버튼 디자인 (계좌번호 복사, 지도 보기 등) */
-button, .map-btn {
-    appearance: none;
+button {
     background-color: #a4907c;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-button:active {
-    background-color: #8d7b68;
-}
-
-/* 7. D-Day 섹션 스타일 */
-.d-day-section {
-    background-color: #faf3e0;
-    padding: 15px;
-    font-weight: bold;
-    color: #8d7b68;
-}
-
-/* 8. 계좌번호 박스 */
-.account-box {
-    background-color: #fdfaf6;
-    border: 1px solid #eee;
-    padding: 20px;
-    border-radius: 12px;
     margin-top: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
 }
