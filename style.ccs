@@ -1,21 +1,98 @@
-/* 기본 레이아웃 */
-body { margin: 0; background: #f4f4f4; line-height: 1.6; }
-.container { max-width: 480px; margin: 0 auto; background: #fff; padding-bottom: 50px; }
-
-/* D-Day */
-.d-day-section { background: #faf3e0; padding: 20px; font-weight: bold; color: #d4a373; }
-
-/* 슬라이더 크기 조절 */
-.swiper { width: 100%; height: 300px; }
-.swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-
-/* 계좌번호 버튼 */
-.account-box { background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 10px; }
-button { 
-    background: #d4a373; color: white; border: none; 
-    padding: 8px 15px; border-radius: 5px; cursor: pointer;
+/* 1. 기본 스타일 초기화: 브라우저마다 다른 기본 여백을 0으로 설정 */
+* {
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함시킴 */
+    margin: 0;
+    padding: 0;
 }
 
-/* 카카오톡 버튼 */
-.kakao-btn { background: #fee500; color: #3c1e1e; width: 90%; font-weight: bold; margin-top: 20px; }
+body {
+    background-color: #f8f9fa; /* 배경은 연한 회색 */
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center; /* PC에서 볼 때 중앙 정렬 */
+}
 
+/* 2. 메인 컨테이너: 모바일 폰의 최대 너비를 설정 */
+.container {
+    width: 100%;
+    max-width: 480px; /* 아이폰/갤럭시 최적 너비 */
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05); /* 은은한 그림자 */
+}
+
+/* 3. 이미지 스타일: 이 부분이 사진 크기 문제를 해결합니다 */
+img {
+    max-width: 100%; /* 부모 너비보다 커지지 않음 */
+    height: auto;    /* 비율 유지 */
+    display: block;  /* 이미지 하단 빈 공간 제거 */
+}
+
+.main-photo img {
+    width: 100%;     /* 화면에 꽉 차게 */
+    /* 필요하다면 여기에 border-radius: 10px; 등을 추가하세요 */
+}
+
+/* 4. 섹션 공통 스타일 */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* 5. 텍스트 디자인 */
+h1 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #8d7b68;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #a4907c;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* 6. 버튼 디자인 (계좌번호 복사, 지도 보기 등) */
+button, .map-btn {
+    appearance: none;
+    background-color: #a4907c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+button:active {
+    background-color: #8d7b68;
+}
+
+/* 7. D-Day 섹션 스타일 */
+.d-day-section {
+    background-color: #faf3e0;
+    padding: 15px;
+    font-weight: bold;
+    color: #8d7b68;
+}
+
+/* 8. 계좌번호 박스 */
+.account-box {
+    background-color: #fdfaf6;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
